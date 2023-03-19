@@ -159,7 +159,7 @@ const MenuTable = (props) => {
           processRowUpdate={processRowUpdate}
           onCellEditStop={(params, event) => {
             if (params.reason === GridCellEditStopReasons.cellFocusOut) {
-              event.defaultMuiPrevented = true;
+              // event.defaultMuiPrevented = true;
             }
           }}
         />
