@@ -121,7 +121,7 @@ const MenuTable = (props) => {
   if (!m_Menus.length && !manageMenu) {
     return (
       <h3>
-        Menus not available for the current day. Click on manage to add items
+        Menu not available for the current day. Click on manage to add items
       </h3>
     );
   }
