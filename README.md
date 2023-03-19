@@ -43,4 +43,12 @@ Valid end points-
     }
     
 #
-    
+## Starting client in local ##
+  1. npm i
+  2. npm start
+
+Scenarios Considered.
+  1. Menu Tab shows list of menu's available
+  2. Manage Tab allows user to add menu and added menu will be loaded in table
+  3. User can edit the menu name by editing cell. After edition propmt will be show for confirmation.
+  4. A toast message will be shown at left side upon successful insert
