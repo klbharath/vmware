@@ -16,7 +16,7 @@ import { putMenu } from "../actions/menuActions";
 
 function computeMutation(newRow, oldRow) {
   if (newRow.name !== oldRow.name) {
-    return `Food changed from '${oldRow?.name}' to '${newRow?.name}'`;
+    return `food from '${oldRow?.name}' to '${newRow?.name}'`;
   }
   return null;
 }
@@ -110,7 +110,7 @@ const MenuTable = (props) => {
       >
         <DialogTitle>Are you sure?</DialogTitle>
         <DialogContent dividers>
-          {`Pressing 'Yes' will change from ${mutation}`}
+          {`Pressing 'Yes' will change ${mutation}`}
         </DialogContent>
         <DialogActions>
           <Button ref={noButtonRef} onClick={handleNo}>

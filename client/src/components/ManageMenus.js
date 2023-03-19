@@ -8,6 +8,7 @@ import { postMenu } from "../actions/menuActions";
 const ManageMenus = () => {
   const dispatch = useDispatch();
   const [formValues, setFormValues] = useState({});
+  const [dateVal, setDateVal] = useState(null);
   const dateRef = useRef(null);
 
   const setInputValues = (e) => {
@@ -19,6 +20,7 @@ const ManageMenus = () => {
   };
 
   const setInputDate = (date, contex) => {
+    setDateVal(date);
     setFormValues({
       ...formValues,
       date: new Date(date)?.getTime(),
@@ -36,6 +38,7 @@ const ManageMenus = () => {
 
     dispatch(postMenu(formValues));
     setFormValues({});
+    setDateVal(null);
     setTimeout(() => (dateRef.current.value = ""), 1000);
   };
 
@@ -70,6 +73,7 @@ const ManageMenus = () => {
           inputRef={dateRef}
           onChange={setInputDate}
           defaultValue=""
+          value={dateVal}
         />
         <Button
           style={{ height: "55px" }}

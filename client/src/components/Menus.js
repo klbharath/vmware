@@ -26,9 +26,14 @@ const Menus = (props) => {
           {errorMsg}
         </Alert>
       )}
-      <Snackbar open={toast} autoHideDuration={6000}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
-          Food added successfully
+      <Snackbar
+        open={toast}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      >
+        <Alert severity="success" sx={{ width: "100%" }}>
+          Food added successfully!
         </Alert>
       </Snackbar>
       <MenuTable allowEdit={allowEdit} manageMenu={manageMenu} />
