@@ -1,5 +1,9 @@
 # vmware Work Sample Simulation
 
+Tech stack used.
+  * Client - React, axios
+  * Backend - Node JS, mongo-inmemory database, mongoose ODM
+
 ## Starting server in local ##
   1. npm i
   2. npm run dev:start
