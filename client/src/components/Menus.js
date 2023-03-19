@@ -13,7 +13,7 @@ const Menus = (props) => {
     if (!menus.length && !loaded) {
       dispatch(getMenus());
     }
-  }, [dispatch, menus]);
+  }, [dispatch, menus, loaded]);
 
   const handleClose = (event, reason) => {
     dispatch(toggleToast());

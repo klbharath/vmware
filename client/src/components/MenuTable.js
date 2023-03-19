@@ -46,10 +46,6 @@ const MenuTable = (props) => {
     ? m_Menus.filter((menu) => menu?.date === new Date().toLocaleDateString())
     : m_Menus;
 
-  if (!m_Menus.length) {
-    <h3>Menus not available. Click on manage to add items</h3>;
-  }
-
   const checkCellEditable = (e) => {
     return e?.field === "name";
   };
@@ -122,6 +118,14 @@ const MenuTable = (props) => {
     );
   };
 
+  if (!m_Menus.length && !manageMenu) {
+    return (
+      <h3>
+        Menus not available for the current day. Click on manage to add items
+      </h3>
+    );
+  }
+
   return (
     <React.Fragment>
       <Box
@@ -133,7 +137,7 @@ const MenuTable = (props) => {
         }}
       >
         <Typography variant="h6" gutterBottom>
-          {`Available Items - ${m_Menus?.length}`}
+          {`Today's available menu - ${m_Menus?.length}`}
         </Typography>
         {allowEdit && (
           <i style={{ color: "grey" }}>
