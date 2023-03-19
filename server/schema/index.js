@@ -13,4 +13,12 @@ export const MenuSchema = new Schema({
   },
 });
 
+MenuSchema.virtual("id").get(function () {
+  return this._id.toHexString();
+});
+
+MenuSchema.set("toJSON", {
+  virtuals: true,
+});
+
 export const MenuModel = Mongoose.model("menu", MenuSchema);
