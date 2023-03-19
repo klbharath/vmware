@@ -79,7 +79,7 @@ const ManageMenus = () => {
           Add
         </Button>
       </Box>
-      <Menus allowEdit />
+      <Menus allowEdit manageMenu />
     </React.Fragment>
   );
 };

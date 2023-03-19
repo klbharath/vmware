@@ -6,11 +6,11 @@ import MenuTable from "./MenuTable";
 
 const Menus = (props) => {
   const dispatch = useDispatch();
-  const { allowEdit } = props;
+  const { allowEdit, manageMenu } = props;
   const menuState = useSelector((state) => state?.menus, shallowEqual);
-  const { menus, errorMsg, toast } = menuState;
+  const { menus, errorMsg, toast, loaded } = menuState;
   useEffect(() => {
-    if (!menus.length) {
+    if (!menus.length && !loaded) {
       dispatch(getMenus());
     }
   }, [dispatch, menus]);
@@ -31,7 +31,7 @@ const Menus = (props) => {
           Food added successfully
         </Alert>
       </Snackbar>
-      <MenuTable allowEdit={allowEdit} />
+      <MenuTable allowEdit={allowEdit} manageMenu={manageMenu} />
     </React.Fragment>
   );
 };

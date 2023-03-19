@@ -22,26 +22,29 @@ function computeMutation(newRow, oldRow) {
 }
 
 const MenuTable = (props) => {
-  const { allowEdit } = props;
+  const { allowEdit, manageMenu } = props;
   const [promiseArguments, setPromiseArguments] = React.useState(null);
   const dispatch = useDispatch();
   const noButtonRef = React.useRef(null);
 
   const columns = [
+    { field: "date", headerName: "Date", width: 500 },
     {
       field: "name",
       headerName: "Menu",
       width: 500,
       editable: allowEdit,
     },
-    { field: "date", headerName: "Date", width: 500 },
   ];
 
   const menuState = useSelector(
     (state) => selectStateMenu(state),
     shallowEqual
   );
-  const m_Menus = useSelector((state) => selectMenus(state), shallowEqual); // modified version of menu JSON
+  let m_Menus = useSelector((state) => selectMenus(state), shallowEqual); // modified version of menu JSON
+  m_Menus = !manageMenu
+    ? m_Menus.filter((menu) => menu?.date === new Date().toLocaleDateString())
+    : m_Menus;
 
   if (!m_Menus.length) {
     <h3>Menus not available. Click on manage to add items</h3>;
@@ -106,9 +109,9 @@ const MenuTable = (props) => {
         open={!!promiseArguments}
       >
         <DialogTitle>Are you sure?</DialogTitle>
-        <DialogContent
-          dividers
-        >{`Pressing 'Yes' will change from ${mutation}`}</DialogContent>
+        <DialogContent dividers>
+          {`Pressing 'Yes' will change from ${mutation}`}
+        </DialogContent>
         <DialogActions>
           <Button ref={noButtonRef} onClick={handleNo}>
             No
@@ -130,7 +133,7 @@ const MenuTable = (props) => {
         }}
       >
         <Typography variant="h6" gutterBottom>
-          {`Available Items - ${m_Menus.length}`}
+          {`Available Items - ${m_Menus?.length}`}
         </Typography>
         {allowEdit && (
           <i style={{ color: "grey" }}>

@@ -21,6 +21,7 @@ const menuReducer = (state = initialState, action) => {
         menus: action.payLoad,
         loading: false,
         errorMsg: null,
+        loaded: true,
       };
     case POST_MENU:
       return {
