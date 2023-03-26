@@ -136,9 +136,11 @@ const MenuTable = (props) => {
           textAlign: "left",
         }}
       >
-        <Typography variant="h6" gutterBottom>
-          {`Today's available menu - ${m_Menus?.length}`}
-        </Typography>
+        {!manageMenu && (
+          <Typography variant="h6" gutterBottom>
+            {`Today's available menu - ${m_Menus?.length}`}
+          </Typography>
+        )}
         {allowEdit && (
           <i style={{ color: "grey" }}>
             Note - Click on menu cell to edit the food

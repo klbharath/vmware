@@ -67,6 +67,7 @@ const ManageMenus = () => {
           value={formValues.name || ""}
           variant="outlined"
           onChange={(e) => setInputValues(e)}
+          inputProps={{ style: { textTransform: "capitalize" } }}
         />
         <DateField
           name="date"
