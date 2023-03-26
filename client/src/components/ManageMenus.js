@@ -13,9 +13,15 @@ const ManageMenus = () => {
 
   const setInputValues = (e) => {
     if (!e?.target) return;
+
+    const value = e.target?.value
+      ?.split(" ")
+      ?.map((word) => word?.charAt(0)?.toUpperCase() + word.slice(1))
+      ?.join(" ");
+
     setFormValues({
       ...formValues,
-      [e.target?.name]: e.target?.value,
+      [e.target?.name]: value,
     });
   };
 
