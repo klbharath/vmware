@@ -8,6 +8,7 @@ const App = Express();
 const port = process.env.PORT || 5000;
 
 // mongo in-memory database
+// dummy commit to test git hooks
 const mongoDb = await MongoMemoryServer.create();
 const uri = mongoDb.getUri();
 Mongoose.connect(uri, {
